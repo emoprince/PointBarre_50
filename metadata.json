@@ -1,0 +1,5 @@
+{
+  "name": "Coffee Cart Event Quote Calculator",
+  "description": "A simple calculator to create a quote for a coffee cart event package. Users can add options like pastries, custom items, and send a request for a detailed quote via email.",
+  "requestFramePermissions": []
+}
