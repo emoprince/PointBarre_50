@@ -355,5 +355,18 @@
 
         updateApp(); // Initial render
     </script>
+    <script>
+        function sendHeight() {
+          const height = document.body.scrollHeight;
+          parent.postMessage({ height }, "https://emoprince.github.io");
+        }
+        
+        // Send initial height after load
+        window.addEventListener("load", sendHeight);
+        
+        // Update dynamically if content resizes
+        const observer = new ResizeObserver(sendHeight);
+        observer.observe(document.body);
+    </script>
 </body>
 </html>
