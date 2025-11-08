@@ -31,105 +31,109 @@
 
     <div id="app-container" class="bg-[#F9F7F3] text-[#1B1B1B]">
         <header class="p-4 text-center">
-            <p class="text-lg text-[#1B1B1B]/90">Configurez votre pack et obtenez une estimation instantanée.</p>
+            <p class="text-base sm:text-lg text-[#1B1B1B]/90">Configurez votre pack et obtenez une estimation instantanée.</p>
         </header>
         
-        <main class="grid grid-cols-5 gap-x-4 px-4">
-            <div class="col-span-3 px-4 pt-4">
-                <!-- Section 1: Coordonnées -->
-                <div class="py-4 border-b border-[#1B1B1B]/30">
-                    <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3">1. Vos coordonnées</h3>
-                    <div class="space-y-4">
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <input type="text" name="firstName" placeholder="Prénom" class="form-input" required />
-                            <input type="text" name="lastName" placeholder="Nom" class="form-input" required />
-                            <input type="email" name="email" placeholder="Adresse email" class="form-input" required />
-                            <input type="tel" name="phone" placeholder="Numéro (optionnel)" class="form-input" />
+        <main class="px-4">
+            <!-- Section 1 Title -->
+            <div class="w-full lg:w-3/5 px-4">
+                <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3 pt-4">1. Vos coordonnées</h3>
+            </div>
+            
+            <!-- Flex Container for Form & Sidebar -->
+            <div class="flex flex-col lg:flex-row gap-x-4">
+                <!-- Left Column: Form -->
+                <div class="w-full lg:w-3/5 px-4">
+                    <!-- Section 1: Coordonnées (Inputs only) -->
+                    <div class="pb-4 border-b border-[#1B1B1B]/30">
+                        <div class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <input type="text" name="firstName" placeholder="Prénom" class="form-input" required />
+                                <input type="text" name="lastName" placeholder="Nom" class="form-input" required />
+                                <input type="email" name="email" placeholder="Adresse email" class="form-input" required />
+                                <input type="tel" name="phone" placeholder="Numéro (optionnel)" class="form-input" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1" id="person-count-label">Nombre de personnes (max 50 pour le pack de base)</label>
+                                <input type="text" inputMode="numeric" pattern="[0-9]*" name="personCount" placeholder="Ex: 25" class="w-full px-3 py-2 bg-transparent border border-[#1B1B1B] focus:ring-2 focus:ring-[#1B1B1B] placeholder:text-[#1B1B1B]/70" />
+                                <p id="person-count-error" class="text-red-400 text-xs mt-1 hidden">Le pack de base est limité à 50 personnes. Pour plus, veuillez nous contacter.</p>
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-1" id="person-count-label">Nombre de personnes (max 50 pour le pack de base)</label>
-                            <input type="text" inputMode="numeric" pattern="[0-9]*" name="personCount" placeholder="Ex: 25" class="w-full px-3 py-2 bg-transparent border border-[#1B1B1B] focus:ring-2 focus:ring-[#1B1B1B] placeholder:text-[#1B1B1B]/70" />
-                            <p id="person-count-error" class="text-red-400 text-xs mt-1 hidden">Le pack de base est limité à 50 personnes. Pour plus, veuillez nous contacter.</p>
+                    </div>
+                    
+                    <!-- Section 2: Options -->
+                    <div class="py-4 border-b border-[#1B1B1B]/30">
+                        <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3">2. Options & Suppléments</h3>
+                        <div class="space-y-4">
+                            <div class="p-3 bg-[#EEEAE4]" id="croissant-selector"></div>
+                            <div class="p-3 bg-[#EEEAE4]" id="biscuit-selector"></div>
+    
+                            <label class="flex items-center space-x-3 p-3 bg-[#EEEAE4] cursor-pointer hover:bg-[#e0dcd5]">
+                                <input type="checkbox" name="wantsCustomCups" class="h-5 w-5 border-gray-300 text-[#1B1B1B] focus:ring-[#1B1B1B]"/>
+                                <span id="custom-cups-label">Gobelets personnalisés (estimé: 50.00 CHF)</span>
+                            </label>
+                            <textarea name="customCupsNotes" placeholder="Décrivez vos besoins pour les gobelets..." class="form-textarea hidden"></textarea>
+                            
+                            <label class="flex items-center space-x-3 p-3 bg-[#EEEAE4] cursor-pointer hover:bg-[#e0dcd5]">
+                                <input type="checkbox" name="wantsCustomDrink" class="h-5 w-5 border-gray-300 text-[#1B1B1B] focus:ring-[#1B1B1B]"/>
+                                <span id="custom-drink-label">Boisson personnalisée (estimé: 75.00 CHF)</span>
+                            </label>
+                            <textarea name="customDrinkNotes" placeholder="Décrivez vos besoins pour la boisson..." class="form-textarea hidden"></textarea>
+    
+                            <label class="flex items-center space-x-3 p-3 bg-[#EEEAE4] cursor-pointer hover:bg-[#e0dcd5]">
+                                <input type="checkbox" name="wantsMusicAmbiance" class="h-5 w-5 border-gray-300 text-[#1B1B1B] focus:ring-[#1B1B1B]"/>
+                                <span id="music-ambiance-label">Ambiance musicale (estimé: 100.00 CHF)</span>
+                            </label>
+                            <textarea name="musicAmbianceNotes" placeholder="Décrivez vos envies musicales (style, playlist...)" class="form-textarea hidden"></textarea>
                         </div>
+                    </div>
+    
+                    <!-- Section 3: Logos -->
+                    <div class="pt-4 border-b border-[#1B1B1B]/30">
+                        <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3">3. Vos Logos (.png, .jpg)</h3>
+                        
+                        <label for="logo-upload" class="w-full text-center cursor-pointer flex items-center justify-center gap-2 bg-[#1B1B1B] text-[#EEEAE4] font-bold py-3 px-4 hover:bg-[#1B1B1B]/90 transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            Ajouter des fichiers
+                        </label>
+                        <input id="logo-upload" type="file" multiple accept=".png,.jpg,.jpeg" class="hidden" />
+                    </div>
+                     <!-- File list -->
+                     <div class="pt-4">
+                        <div id="file-list" class="space-y-2"></div>
+                        <p class="text-xs text-center text-[#1B1B1B]/70 mt-2">Note: Vous devrez attacher manuellement les fichiers à l'email.</p>
                     </div>
                 </div>
                 
-                <!-- Section 2: Options -->
-                <div class="py-4 border-b border-[#1B1B1B]/30">
-                    <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3">2. Options & Suppléments</h3>
-                    <div class="space-y-4">
-                        <div class="p-3 bg-[#EEEAE4]" id="croissant-selector"></div>
-                        <div class="p-3 bg-[#EEEAE4]" id="biscuit-selector"></div>
-
-                        <label class="flex items-center space-x-3 p-3 bg-[#EEEAE4] cursor-pointer hover:bg-[#e0dcd5]">
-                            <input type="checkbox" name="wantsCustomCups" class="h-5 w-5 border-gray-300 text-[#1B1B1B] focus:ring-[#1B1B1B]"/>
-                            <span id="custom-cups-label">Gobelets personnalisés (estimé: 50.00 CHF)</span>
-                        </label>
-                        <textarea name="customCupsNotes" placeholder="Décrivez vos besoins pour les gobelets..." class="form-textarea hidden"></textarea>
-                        
-                        <label class="flex items-center space-x-3 p-3 bg-[#EEEAE4] cursor-pointer hover:bg-[#e0dcd5]">
-                            <input type="checkbox" name="wantsCustomDrink" class="h-5 w-5 border-gray-300 text-[#1B1B1B] focus:ring-[#1B1B1B]"/>
-                            <span id="custom-drink-label">Boisson personnalisée (estimé: 75.00 CHF)</span>
-                        </label>
-                        <textarea name="customDrinkNotes" placeholder="Décrivez vos besoins pour la boisson..." class="form-textarea hidden"></textarea>
-
-                        <label class="flex items-center space-x-3 p-3 bg-[#EEEAE4] cursor-pointer hover:bg-[#e0dcd5]">
-                            <input type="checkbox" name="wantsMusicAmbiance" class="h-5 w-5 border-gray-300 text-[#1B1B1B] focus:ring-[#1B1B1B]"/>
-                            <span id="music-ambiance-label">Ambiance musicale (estimé: 100.00 CHF)</span>
-                        </label>
-                        <textarea name="musicAmbianceNotes" placeholder="Décrivez vos envies musicales (style, playlist...)" class="form-textarea hidden"></textarea>
+                <!-- Sidebar -->
+                <div class="w-full lg:w-2/5 bg-[#EEEAE4] p-4 lg:sticky top-4 self-start">
+                    <h2 class="text-xl font-bold text-[#1B1B1B] mb-3 border-b-2 border-[#1B1B1B]/30 pb-2">Résumé du devis</h2>
+                    <div class="text-xs text-[#1B1B1B]/90 space-y-1 my-3 p-3 bg-[#F9F7F3] border border-[#1B1B1B]/30">
+                        <p><strong>Pour événements jusqu’à 50 personnes</strong></p>
+                        <p>Service barista complet de 3h avec café, lait sans lactose ou avoine, logo sur mousse et matériel inclus.</p>
+                        <p>Le tarif couvre l’ensemble des frais — installation, service, nettoyage et transport dans Lausanne (10 km). Au-delà, un supplément est appliqué : 0.75 CHF/km aller-retour.</p>
+                        <p>💡 Environ 15 CHF/personne – idéal pour petits événements ou réunions d’entreprise.</p>
                     </div>
-                </div>
-
-                <!-- Section 3: Logos -->
-                <div class="pt-4 border-b border-[#1B1B1B]/30">
-                    <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3">3. Vos Logos (.png, .jpg)</h3>
-                    
-                    <label for="logo-upload" class="w-full text-center cursor-pointer flex items-center justify-center gap-2 bg-[#1B1B1B] text-[#EEEAE4] font-bold py-3 px-4 hover:bg-[#1B1B1B]/90 transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                        Ajouter des fichiers
-                    </label>
-                    <input id="logo-upload" type="file" multiple accept=".png,.jpg,.jpeg" class="hidden" />
-                </div>
-            </div>
-            
-            <!-- Sidebar -->
-            <div class="col-span-2 bg-[#EEEAE4] p-4 sticky top-4 mt-16 row-span-1">
-                <h2 class="text-xl font-bold text-[#1B1B1B] mb-3 border-b-2 border-[#1B1B1B]/30 pb-2">Résumé du devis</h2>
-                <div class="text-xs text-[#1B1B1B]/90 space-y-1 my-3 p-3 bg-[#F9F7F3] border border-[#1B1B1B]/30">
-                    <p><strong>Pour événements jusqu’à 50 personnes</strong></p>
-                    <p>Service barista complet de 3h avec café, lait sans lactose ou avoine, logo sur mousse et matériel inclus.</p>
-                    <p>Le tarif couvre l’ensemble des frais — installation, service, nettoyage et transport dans Lausanne (10 km). Au-delà, un supplément est appliqué : 0.75 CHF/km aller-retour.</p>
-                    <p>💡 Environ 15 CHF/personne – idéal pour petits événements ou réunions d’entreprise.</p>
-                </div>
-                <div id="summary-details" class="space-y-2 text-[#1B1B1B] mb-4">
-                    <div class="flex justify-between"><span>Pack Base (jusqu'à 50 pers.)</span> <strong>750.00 CHF</strong></div>
-                    <div id="summary-croissants" class="flex justify-between hidden"></div>
-                    <div id="summary-biscuits" class="flex justify-between hidden"></div>
-                    <div id="summary-custom-cups" class="flex justify-between hidden"></div>
-                    <div id="summary-custom-drink" class="flex justify-between hidden"></div>
-                    <div id="summary-music-ambiance" class="flex justify-between hidden"></div>
-                </div>
-                <div class="text-center bg-[#1B1B1B] text-[#EEEAE4] p-3">
-                    <p class="text-base">Total estimé</p>
-                    <p id="total-price" class="text-4xl font-extrabold tracking-tight">750.00 CHF</p>
-                </div>
-                <a id="send-email-link" href="#" class="mt-4 w-full text-center block bg-[#1B1B1B] text-[#EEEAE4] font-bold py-3 px-4 hover:bg-[#1B1B1B]/90 transition-colors duration-300">
-                    Envoyer la demande par Email
-                </a>
-                <p class="text-xs text-center text-[#1B1B1B]/70 mt-2">
-                    Cela ouvrira votre client de messagerie par défaut.
-                </p>
-            </div>
-
-            <!-- File list in a new row -->
-            <div class="col-span-3 px-4">
-                 <div class="pt-4">
-                    <div id="file-list" class="space-y-2"></div>
-                    <p class="text-xs text-center text-[#1B1B1B]/70 mt-2">Note: Vous devrez attacher manuellement les fichiers à l'email.</p>
+                    <div id="summary-details" class="space-y-2 text-[#1B1B1B] mb-4">
+                        <div class="flex justify-between"><span>Pack Base (jusqu'à 50 pers.)</span> <strong>750.00 CHF</strong></div>
+                        <div id="summary-croissants" class="flex justify-between hidden"></div>
+                        <div id="summary-biscuits" class="flex justify-between hidden"></div>
+                        <div id="summary-custom-cups" class="flex justify-between hidden"></div>
+                        <div id="summary-custom-drink" class="flex justify-between hidden"></div>
+                        <div id="summary-music-ambiance" class="flex justify-between hidden"></div>
+                    </div>
+                    <div class="text-center bg-[#1B1B1B] text-[#EEEAE4] p-3">
+                        <p class="text-base">Total estimé</p>
+                        <p id="total-price" class="text-3xl sm:text-4xl font-extrabold tracking-tight">750.00 CHF</p>
+                    </div>
+                    <a id="send-email-link" href="#" class="mt-4 w-full text-center block bg-[#1B1B1B] text-[#EEEAE4] font-bold py-3 px-4 hover:bg-[#1B1B1B]/90 transition-colors duration-300">
+                        Envoyer la demande par Email
+                    </a>
+                    <p class="text-xs text-center text-[#1B1B1B]/70 mt-2">
+                        Cela ouvrira votre client de messagerie par défaut.
+                    </p>
                 </div>
             </div>
-            <div class="col-span-2"></div> <!-- Empty cell for alignment -->
         </main>
     </div>
 
