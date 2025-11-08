@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,16 +29,16 @@
 </head>
 <body class="bg-[#F9F7F3]">
 
-    <div id="app-container" class="max-w-6xl mx-auto bg-[#F9F7F3] text-[#1B1B1B] overflow-hidden border border-[#1B1B1B] my-4 sm:my-6 md:my-8">
-        <header class="p-8 text-center">
-            <p class="text-xl text-[#1B1B1B]/90">Configurez votre pack et obtenez une estimation instantanée.</p>
+    <div id="app-container" class="bg-[#F9F7F3] text-[#1B1B1B]">
+        <header class="p-4 text-center">
+            <p class="text-lg text-[#1B1B1B]/90">Configurez votre pack et obtenez une estimation instantanée.</p>
         </header>
         
-        <main class="grid md:grid-cols-3">
-            <div class="md:col-span-2 p-6 md:p-8">
+        <main class="grid grid-cols-5 gap-x-4 px-4">
+            <div class="col-span-3 px-4 pt-4">
                 <!-- Section 1: Coordonnées -->
-                <div class="py-6 border-b border-[#1B1B1B]/30">
-                    <h3 class="text-xl font-semibold text-[#1B1B1B] mb-4">1. Vos coordonnées</h3>
+                <div class="py-4 border-b border-[#1B1B1B]/30">
+                    <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3">1. Vos coordonnées</h3>
                     <div class="space-y-4">
                         <div class="grid sm:grid-cols-2 gap-4">
                             <input type="text" name="firstName" placeholder="Prénom" class="form-input" required />
@@ -56,8 +55,8 @@
                 </div>
                 
                 <!-- Section 2: Options -->
-                <div class="py-6 border-b border-[#1B1B1B]/30">
-                    <h3 class="text-xl font-semibold text-[#1B1B1B] mb-4">2. Options & Suppléments</h3>
+                <div class="py-4 border-b border-[#1B1B1B]/30">
+                    <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3">2. Options & Suppléments</h3>
                     <div class="space-y-4">
                         <div class="p-3 bg-[#EEEAE4]" id="croissant-selector"></div>
                         <div class="p-3 bg-[#EEEAE4]" id="biscuit-selector"></div>
@@ -83,30 +82,27 @@
                 </div>
 
                 <!-- Section 3: Logos -->
-                <div class="py-6 border-b border-[#1B1B1B]/30">
-                    <h3 class="text-xl font-semibold text-[#1B1B1B] mb-4">3. Vos Logos (.png, .jpg)</h3>
-                    <div class="space-y-4">
-                        <label for="logo-upload" class="w-full text-center cursor-pointer flex items-center justify-center gap-2 bg-[#1B1B1B] text-[#EEEAE4] font-bold py-3 px-4 hover:bg-[#1B1B1B]/90 transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                            Ajouter des fichiers
-                        </label>
-                        <input id="logo-upload" type="file" multiple accept=".png,.jpg,.jpeg" class="hidden" />
-                        <div id="file-list" class="mt-4 space-y-2"></div>
-                        <p class="text-xs text-center text-[#1B1B1B]/70 mt-2">Note: Vous devrez attacher manuellement les fichiers à l'email.</p>
-                    </div>
+                <div class="pt-4 border-b border-[#1B1B1B]/30">
+                    <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3">3. Vos Logos (.png, .jpg)</h3>
+                    
+                    <label for="logo-upload" class="w-full text-center cursor-pointer flex items-center justify-center gap-2 bg-[#1B1B1B] text-[#EEEAE4] font-bold py-3 px-4 hover:bg-[#1B1B1B]/90 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        Ajouter des fichiers
+                    </label>
+                    <input id="logo-upload" type="file" multiple accept=".png,.jpg,.jpeg" class="hidden" />
                 </div>
             </div>
             
             <!-- Sidebar -->
-            <div class="md:col-span-1 bg-[#EEEAE4] p-6 md:p-8 md:sticky top-8 self-start md:mt-[6.25rem]">
-                <h2 class="text-2xl font-bold text-[#1B1B1B] mb-4 border-b-2 border-[#1B1B1B]/30 pb-3">Résumé du devis</h2>
-                <div class="text-sm text-[#1B1B1B]/90 space-y-2 my-4 p-4 bg-[#F9F7F3] border border-[#1B1B1B]/30">
+            <div class="col-span-2 bg-[#EEEAE4] p-4 sticky top-4 mt-16 row-span-1">
+                <h2 class="text-xl font-bold text-[#1B1B1B] mb-3 border-b-2 border-[#1B1B1B]/30 pb-2">Résumé du devis</h2>
+                <div class="text-xs text-[#1B1B1B]/90 space-y-1 my-3 p-3 bg-[#F9F7F3] border border-[#1B1B1B]/30">
                     <p><strong>Pour événements jusqu’à 50 personnes</strong></p>
                     <p>Service barista complet de 3h avec café, lait sans lactose ou avoine, logo sur mousse et matériel inclus.</p>
                     <p>Le tarif couvre l’ensemble des frais — installation, service, nettoyage et transport dans Lausanne (10 km). Au-delà, un supplément est appliqué : 0.75 CHF/km aller-retour.</p>
                     <p>💡 Environ 15 CHF/personne – idéal pour petits événements ou réunions d’entreprise.</p>
                 </div>
-                <div id="summary-details" class="space-y-3 text-[#1B1B1B] mb-6">
+                <div id="summary-details" class="space-y-2 text-[#1B1B1B] mb-4">
                     <div class="flex justify-between"><span>Pack Base (jusqu'à 50 pers.)</span> <strong>750.00 CHF</strong></div>
                     <div id="summary-croissants" class="flex justify-between hidden"></div>
                     <div id="summary-biscuits" class="flex justify-between hidden"></div>
@@ -114,17 +110,26 @@
                     <div id="summary-custom-drink" class="flex justify-between hidden"></div>
                     <div id="summary-music-ambiance" class="flex justify-between hidden"></div>
                 </div>
-                <div class="text-center bg-[#1B1B1B] text-[#EEEAE4] p-4">
-                    <p class="text-lg">Total estimé</p>
-                    <p id="total-price" class="text-5xl font-extrabold tracking-tight">750.00 CHF</p>
+                <div class="text-center bg-[#1B1B1B] text-[#EEEAE4] p-3">
+                    <p class="text-base">Total estimé</p>
+                    <p id="total-price" class="text-4xl font-extrabold tracking-tight">750.00 CHF</p>
                 </div>
-                <a id="send-email-link" href="#" class="mt-6 w-full text-center block bg-[#1B1B1B] text-[#EEEAE4] font-bold py-3 px-4 hover:bg-[#1B1B1B]/90 transition-colors duration-300">
+                <a id="send-email-link" href="#" class="mt-4 w-full text-center block bg-[#1B1B1B] text-[#EEEAE4] font-bold py-3 px-4 hover:bg-[#1B1B1B]/90 transition-colors duration-300">
                     Envoyer la demande par Email
                 </a>
                 <p class="text-xs text-center text-[#1B1B1B]/70 mt-2">
                     Cela ouvrira votre client de messagerie par défaut.
                 </p>
             </div>
+
+            <!-- File list in a new row -->
+            <div class="col-span-3 px-4">
+                 <div class="pt-4">
+                    <div id="file-list" class="space-y-2"></div>
+                    <p class="text-xs text-center text-[#1B1B1B]/70 mt-2">Note: Vous devrez attacher manuellement les fichiers à l'email.</p>
+                </div>
+            </div>
+            <div class="col-span-2"></div> <!-- Empty cell for alignment -->
         </main>
     </div>
 
@@ -172,10 +177,10 @@
         function createQuantitySelector(containerId, title, field, max) {
             const container = document.getElementById(containerId);
             container.innerHTML = `
-                <h3 class="text-lg font-semibold text-[#1B1B1B] mb-3">${title}</h3>
+                <h3 class="text-base font-semibold text-[#1B1B1B] mb-2">${title}</h3>
                 <div class="flex items-center justify-center bg-transparent p-2 border-2 border-[#1B1B1B] max-w-xs mx-auto">
                     <button data-action="decrement" class="quantity-btn">-</button>
-                    <span class="flex-grow text-center text-xl font-bold text-[#1B1B1B]">0</span>
+                    <span class="flex-grow text-center text-lg font-bold text-[#1B1B1B]">0</span>
                     <button data-action="increment" class="quantity-btn">+</button>
                 </div>`;
 
